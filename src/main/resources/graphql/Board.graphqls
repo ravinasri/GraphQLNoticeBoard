@@ -1,0 +1,21 @@
+type Board {
+	id:ID!
+	title: String!
+	noticeList: [Notice!] 
+    
+}
+type Notice {
+	id:ID!
+	title: String!
+	description: String!
+	author: Author
+}
+
+extend type Query {
+	findAllBoard:[Board]!
+}
+
+extend type Mutation {
+	createBoard(title:String!):Board
+}
+

@@ -1,0 +1,19 @@
+type Notice {
+	id:ID!
+	title: String!
+	description: String!
+	author: Author
+	board: Board
+}
+
+extend type Query {
+	findAllNotices: [Notice]!
+	
+}
+
+extend type Mutation {
+	createNotice(title: String!, description: String, author: ID!, board: ID!): Notice!
+	updateNotice(id: ID!, title: String, description: String): Notice!
+	deleteNotice(id: ID!): Boolean
+}
+
